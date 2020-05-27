@@ -1,11 +1,32 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@NamedQueries({
+	@NamedQuery(name="getAllGames", query="FROM Game")
+})
+
+@Table
 public class Game {
+	@Id
+	@SequenceGenerator(name="gameGen", sequenceName="game_seq", allocationSize=1)
+	@GeneratedValue(generator="gameGen", strategy=GenerationType.SEQUENCE)
+	@Column(name="game_id")
 	private Integer id;
+	@Column(name="user_id")
 	private Integer userId;
+	@Column(name="deck_id")
 	private Integer deckId;
 	private GameType type;
 	private Integer score;
+	@Column(name="winner_id")
 	private Integer winnerId;
 	private Float amount_won;
 	
