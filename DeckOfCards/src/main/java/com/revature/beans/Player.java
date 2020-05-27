@@ -10,23 +10,26 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @NamedQueries({
-	@NamedQuery(name="getAllPeople", query="FROM Person")
+	@NamedQuery(name="getAllPlayers", query="FROM Player")
 })
 
 @Table
-public class Person {
+public class Player {
 	@Id
-	@SequenceGenerator(name="personGen", sequenceName="person_seq", allocationSize=1)
-	@GeneratedValue(generator="personGen", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="playerGen", sequenceName="player_seq", allocationSize=1)
+	@GeneratedValue(generator="playerGen", strategy=GenerationType.SEQUENCE)
+	@Column(name="player_id")
 	private Integer id;
 	private String username;
-	@Column(name="passwd")
+	@Column(name="passwrd")
 	private String password;
+	@Column(name="first_name")
 	private String firstname;
+	@Column(name="last_name")
 	private String lastname;
 	private Double balance;
 	
-	public Person() {
+	public Player() {
 		id = 0;
 		username = "";
 		password = "";
@@ -104,7 +107,7 @@ public class Person {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Person other = (Person) obj;
+		Player other = (Player) obj;
 		if (balance == null) {
 			if (other.balance != null)
 				return false;
@@ -140,7 +143,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
+		return "Player [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", balance=" + balance + "]";
 	}
 	
