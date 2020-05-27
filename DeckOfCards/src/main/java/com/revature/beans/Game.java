@@ -20,7 +20,7 @@ public class Game {
 	@GeneratedValue(generator="gameGen", strategy=GenerationType.SEQUENCE)
 	@Column(name="game_id")
 	private Integer id;
-	@Column(name="user_id")
+	@Column(name="player_id")
 	private Integer userId;
 	@Column(name="deck_id")
 	private Integer deckId;
