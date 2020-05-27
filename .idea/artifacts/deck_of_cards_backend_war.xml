@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="deck-of-cards-backend:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>deck-of-cards-backend</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="deck-of-cards-backend-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="deck-of-cards-backend:war exploded" />
+    </root>
+  </artifact>
+</component>
