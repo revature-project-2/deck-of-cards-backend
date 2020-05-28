@@ -21,23 +21,24 @@ public class Game {
 	@Column(name="game_id")
 	private Integer id;
 	@Column(name="player_id")
-	private Integer userId;
+	private Integer playerId;
 	@Column(name="deck_id")
 	private Integer deckId;
 	private GameType type;
 	private Integer score;
 	@Column(name="winner_id")
 	private Integer winnerId;
-	private Float amount_won;
+	@Column(name="amount_won")
+	private Float amountWon;
 	
 	public Game() {
 		id = 0;
-		userId = 0;
+		playerId = 0;
 		deckId = 0;
 		type = null;
 		score = 0;
 		winnerId = 0;
-		amount_won = 0f;
+		amountWon = 0f;
 	}
 
 	public Integer getId() {
@@ -49,11 +50,11 @@ public class Game {
 	}
 
 	public Integer getUserId() {
-		return userId;
+		return playerId;
 	}
 
 	public void setUserId(Integer userId) {
-		this.userId = userId;
+		this.playerId = userId;
 	}
 
 	public Integer getDeckId() {
@@ -89,23 +90,23 @@ public class Game {
 	}
 
 	public Float getAmount_won() {
-		return amount_won;
+		return amountWon;
 	}
 
 	public void setAmount_won(Float amount_won) {
-		this.amount_won = amount_won;
+		this.amountWon = amount_won;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((amount_won == null) ? 0 : amount_won.hashCode());
+		result = prime * result + ((amountWon == null) ? 0 : amountWon.hashCode());
 		result = prime * result + ((deckId == null) ? 0 : deckId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((score == null) ? 0 : score.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((playerId == null) ? 0 : playerId.hashCode());
 		result = prime * result + ((winnerId == null) ? 0 : winnerId.hashCode());
 		return result;
 	}
@@ -119,10 +120,10 @@ public class Game {
 		if (getClass() != obj.getClass())
 			return false;
 		Game other = (Game) obj;
-		if (amount_won == null) {
-			if (other.amount_won != null)
+		if (amountWon == null) {
+			if (other.amountWon != null)
 				return false;
-		} else if (!amount_won.equals(other.amount_won))
+		} else if (!amountWon.equals(other.amountWon))
 			return false;
 		if (deckId == null) {
 			if (other.deckId != null)
@@ -141,10 +142,10 @@ public class Game {
 			return false;
 		if (type != other.type)
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (playerId == null) {
+			if (other.playerId != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!playerId.equals(other.playerId))
 			return false;
 		if (winnerId == null) {
 			if (other.winnerId != null)
@@ -156,8 +157,8 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", userId=" + userId + ", deckId=" + deckId + ", type=" + type + ", score=" + score
-				+ ", winnerId=" + winnerId + ", amount_won=" + amount_won + "]";
+		return "Game [id=" + id + ", userId=" + playerId + ", deckId=" + deckId + ", type=" + type + ", score=" + score
+				+ ", winnerId=" + winnerId + ", amount_won=" + amountWon + "]";
 	}
 	
 }
