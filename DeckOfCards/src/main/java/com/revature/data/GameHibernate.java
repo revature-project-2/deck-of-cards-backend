@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.revature.beans.Game;
+import com.revature.beans.Player;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
@@ -103,5 +104,14 @@ public class GameHibernate implements GameDAO{
 		} finally {
 			s.close();
 		}
+	}
+
+	@Override
+	@Deprecated //method no longer needed, we can get the games from our person object easily now
+	public Set<Game> getGamesByPlayer(Integer playerId) {
+		log.warn("DEPRECATED METHOD CALL: getCatsByOwner, USE Person.getCats INSTEAD");
+		Session s = hu.getSession();
+		Player p = s.get(Player.class, playerId);
+		return p.getGames();
 	}
 }

@@ -4,8 +4,8 @@
 	<session-factory>
 		<!-- set up JDBC connection info -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@aws:1521:ORCL</property>
-		<property name="hibernate.connection.username">cardapp</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@rev2004.c0ippggfggzg.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">DeckOfCards</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 		
 		<!-- tell Hibernate the SQL dialect -->
@@ -24,8 +24,9 @@
 		-->
 		
 		<!-- tags for mapping with annotations -->
-		<mapping class="com.revature.beans.Person"></mapping>
+		<mapping class="com.revature.beans.Player"></mapping>
 		<mapping class="com.revature.beans.Game"></mapping>
+		<mapping class="com.revature.beans.GameType"></mapping>
 		<mapping class="com.revature.beans.Card"></mapping>
 	</session-factory>
 </hibernate-configuration>
