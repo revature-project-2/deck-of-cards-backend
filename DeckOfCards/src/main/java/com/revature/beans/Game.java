@@ -21,18 +21,19 @@ public class Game {
 	@Column(name="game_id")
 	private Integer id;
 	@Column(name="player_id")
-	private Integer userId;
+	private Integer playerId;
 	@Column(name="deck_id")
 	private Integer deckId;
 	private GameType type;
 	private Integer score;
 	@Column(name="winner_id")
 	private Integer winnerId;
+//	@Column(name="amoun")
 	private Float amount_won;
 	
 	public Game() {
 		id = 0;
-		userId = 0;
+		playerId = 0;
 		deckId = 0;
 		type = null;
 		score = 0;
@@ -49,11 +50,11 @@ public class Game {
 	}
 
 	public Integer getUserId() {
-		return userId;
+		return playerId;
 	}
 
 	public void setUserId(Integer userId) {
-		this.userId = userId;
+		this.playerId = userId;
 	}
 
 	public Integer getDeckId() {
@@ -105,7 +106,7 @@ public class Game {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((score == null) ? 0 : score.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((playerId == null) ? 0 : playerId.hashCode());
 		result = prime * result + ((winnerId == null) ? 0 : winnerId.hashCode());
 		return result;
 	}
@@ -141,10 +142,10 @@ public class Game {
 			return false;
 		if (type != other.type)
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (playerId == null) {
+			if (other.playerId != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!playerId.equals(other.playerId))
 			return false;
 		if (winnerId == null) {
 			if (other.winnerId != null)
@@ -156,7 +157,7 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", userId=" + userId + ", deckId=" + deckId + ", type=" + type + ", score=" + score
+		return "Game [id=" + id + ", userId=" + playerId + ", deckId=" + deckId + ", type=" + type + ", score=" + score
 				+ ", winnerId=" + winnerId + ", amount_won=" + amount_won + "]";
 	}
 	
