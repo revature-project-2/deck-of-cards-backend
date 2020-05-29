@@ -187,3 +187,5 @@ hs_err_pid*
 #.project
 !/DeckOfCards/.classpath
 !/DeckOfCards/.project
+
+!/.idea/
