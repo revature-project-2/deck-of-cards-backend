@@ -7,16 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.revature.beans.Game;
 import com.revature.data.GameDAO;
-import com.revature.data.PlayerDAO;
 
 @Service
 public class GameServiceImpl implements GameService{
-	PlayerDAO pDao;
 	GameDAO gDao;
 	
 	@Autowired
-	public GameServiceImpl(PlayerDAO p, GameDAO g) {
-		pDao = p;
+	public GameServiceImpl(GameDAO g) {
 		gDao = g;
 	}
 
