@@ -3,11 +3,13 @@ package com.revature.services;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.beans.Game;
 import com.revature.data.GameDAO;
 import com.revature.data.PlayerDAO;
 
+@Service
 public class GameServiceImpl implements GameService{
 	PlayerDAO pDao;
 	GameDAO gDao;
