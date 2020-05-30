@@ -1,6 +1,7 @@
 package com.revature.beans;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 	@NamedQuery(name="getAllGames", query="FROM Game")
 })
 
+@Entity
 @Table
 public class Game {
 	@Id
