@@ -40,8 +40,7 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public void deleteGame(Game g) {
-		// TODO Auto-generated method stub
-		
+		gDao.delete(g);
 	}
 
 	@Override
