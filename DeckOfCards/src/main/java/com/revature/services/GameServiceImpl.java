@@ -36,13 +36,18 @@ public class GameServiceImpl implements GameService{
 	@Override
 	public void updateGame(Game g) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void deleteGame(Game g) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Game getGameByPlayerId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
