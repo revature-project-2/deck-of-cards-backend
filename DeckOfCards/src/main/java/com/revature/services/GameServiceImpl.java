@@ -12,9 +12,9 @@ import com.revature.data.GameDAO;
 public class GameServiceImpl implements GameService{
 	GameDAO gDao;
 	
-	@Autowired
-	public GameServiceImpl(GameDAO g) {
-		gDao = g;
+	
+	public GameServiceImpl(GameDAO gDao) {
+		this.gDao = gDao;
 	}
 
 	@Override

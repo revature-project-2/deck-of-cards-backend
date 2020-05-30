@@ -22,8 +22,8 @@ public class GameController {
 	private GameService gServ;
 	
 	@Autowired
-	public GameController(GameService g) {
-		gServ = g;
+	public GameController(GameService gServ) {
+		this.gServ = gServ;
 	}
 	
 	@GetMapping

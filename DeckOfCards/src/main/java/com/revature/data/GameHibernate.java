@@ -8,12 +8,15 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.beans.Game;
 import com.revature.beans.Player;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
+
+@Repository
 public class GameHibernate implements GameDAO{
 	private HibernateUtil hu = HibernateUtil.getHibernateUtil();
 	private Logger log = Logger.getLogger(GameHibernate.class);
