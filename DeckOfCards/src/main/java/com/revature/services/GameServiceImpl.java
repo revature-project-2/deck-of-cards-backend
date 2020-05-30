@@ -35,7 +35,7 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public void updateGame(Game g) {
-		// TODO Auto-generated method stub
+		gDao.update(g);
 	}
 
 	@Override
