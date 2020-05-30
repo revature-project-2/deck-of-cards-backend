@@ -7,8 +7,8 @@ import com.revature.beans.Game;
 public interface GameService {
 	public Integer addGame(Game g);
 	public Set<Game> getAllGames();
+	public Set<Game> getGamesByPlayerId(Integer id);
 	public Game getGameById(Integer id);
-	public Game getGameByPlayerId(Integer id);
 	public void updateGame(Game g);
 	public void deleteGame(Game g);
 }
