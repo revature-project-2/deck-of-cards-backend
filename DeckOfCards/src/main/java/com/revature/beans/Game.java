@@ -1,11 +1,14 @@
 package com.revature.beans;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,6 +27,8 @@ public class Game {
 	private Integer playerId;
 	@Column(name="deck_id")
 	private Integer deckId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="game_type_id")
 	private GameType type;
 	private Integer score;
 	@Column(name="winner_id")
