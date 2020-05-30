@@ -20,14 +20,12 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public Integer addGame(Game g) {
-		// TODO Auto-generated method stub
-		return null;
+		return gDao.add(g);
 	}
 
 	@Override
 	public Set<Game> getAllGames() {
-		// TODO Auto-generated method stub
-		return null;
+		return gDao.getAll();
 	}
 
 	@Override
