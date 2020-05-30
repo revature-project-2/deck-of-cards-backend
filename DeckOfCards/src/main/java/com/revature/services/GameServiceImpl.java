@@ -30,8 +30,7 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public Game getGameById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return gDao.getById(id);
 	}
 
 	@Override
