@@ -16,10 +16,7 @@ public class PlayerServiceImpl implements PlayerService {
 	GameDAO gDao;
 	
 	@Autowired
-	public PlayerServiceImpl(PlayerDAO p, GameDAO g) {
-		pDao = p;
-		gDao = g;
-	}
+	public PlayerServiceImpl() {}
 
 	@Override
 	public Integer addPlayer(Player p) {

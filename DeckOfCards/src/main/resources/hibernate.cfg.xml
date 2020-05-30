@@ -27,6 +27,6 @@
 		<mapping class="com.revature.beans.Player"></mapping>
 		<mapping class="com.revature.beans.Game"></mapping>
 		<mapping class="com.revature.beans.GameType"></mapping>
-		<mapping class="com.revature.beans.Card"></mapping>
+		<!-- <mapping class="com.revature.beans.Card"></mapping> -->
 	</session-factory>
 </hibernate-configuration>
