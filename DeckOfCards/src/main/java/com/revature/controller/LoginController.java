@@ -5,13 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.revature.beans.Player;
 import com.revature.services.PlayerService;
@@ -19,6 +13,7 @@ import com.revature.services.PlayerServiceImpl;
 
 @RestController
 @RequestMapping(path="/login")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
 	private PlayerService pServ;
 	
@@ -39,12 +34,10 @@ public class LoginController {
 			return ResponseEntity.ok(p);
 		}
 	}
-	
-	@PutMapping
+	@PostMapping
 	@RequestMapping(path="/register")
 	public ResponseEntity<Player> registerPlayer(@RequestBody Player player) {
 		player.setId(pServ.addPlayer(player));
-		
 		return ResponseEntity.ok(player);
 	}
 	
