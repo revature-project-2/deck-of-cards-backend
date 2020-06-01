@@ -37,8 +37,13 @@
   		<dependency>
   			<artifactId>hibernate-core</artifactId>
   			<groupId>org.hibernate</groupId>
-  			<version>5.2.12.Final</version>
+  			<version>5.4.16.Final</version>
   		</dependency>
+  		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.11.Final</version>
+		</dependency>
   		<!-- apache tomcat allows us to use local server -->
   		<!-- tomcat catalina also includes servlets API implementation -->
   		<dependency>

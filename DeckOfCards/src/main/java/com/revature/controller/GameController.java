@@ -47,13 +47,13 @@ public class GameController {
 		return ResponseEntity.ok(g);
 	}
 	
-	@PutMapping(path="{id}")
+	@PutMapping(path="/{id}")
 	public ResponseEntity<Game> updateGame(@PathVariable("id") Integer id, @RequestBody Game game) {
 		gServ.updateGame(game);
 		return ResponseEntity.ok(gServ.getGameById(id));
 	}
 	
-	@DeleteMapping(path="{id}")
+	@DeleteMapping(path="/{id}")
 	public ResponseEntity<Void> deleteGame(@PathVariable("id") Integer id) {
 		Game game = gServ.getGameById(id);
 		gServ.deleteGame(game);

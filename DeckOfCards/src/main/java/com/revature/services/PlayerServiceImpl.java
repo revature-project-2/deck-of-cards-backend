@@ -2,21 +2,30 @@ package com.revature.services;
 
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Game;
 import com.revature.beans.Player;
 import com.revature.data.GameDAO;
+import com.revature.data.GameHibernate;
 import com.revature.data.PlayerDAO;
+
+//import jdk.internal.net.http.common.Log;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
+	private Logger log = Logger.getLogger(PlayerServiceImpl.class);
+	
 	PlayerDAO pDao;
 	GameDAO gDao;
 	
 	@Autowired
-	public PlayerServiceImpl() {}
+	public PlayerServiceImpl(PlayerDAO p, GameDAO g) {
+		pDao = p;
+		gDao = g;
+	}
 
 	@Override
 	public Integer addPlayer(Player p) {
@@ -26,27 +35,29 @@ public class PlayerServiceImpl implements PlayerService {
 	@Override
 	public Set<Player> getAllPlayers() {
 		Set<Player> people = pDao.getAll();
-		for (Player p : people) {
-			if (p.getGames() == null)
-				p.setGames(gDao.getGamesByPlayer(p.getId()));
-		}
+//		for (Player p : people) {
+//			if (p.getGames() == null)
+//				p.setGames(gDao.getGamesByPlayer(p.getId()));
+//		}
 		return people;
 	}
 
 	@Override
 	public Player getPlayerById(Integer id) {
 		Player p = pDao.getById(id);
-		if (p.getGames() == null)
-			p.setGames(gDao.getGamesByPlayer(p.getId()));
+//		if (p.getGames() == null)
+//			p.setGames(gDao.getGamesByPlayer(p.getId()));
 		return p;
 	}
 
 	@Override
 	public Player getPlayerByUsernameAndPassword(String username, String password) {
-		Player p = pDao.getPlayerByUsernameAndPassword(username, password);
-		if (p != null && p.getGames() == null) {
-			p.setGames(gDao.getGamesByPlayer(p.getId()));
-		}
+		log.trace("Get player by uname: "+username);
+		Player p = pDao.getPlayerByUsernameAndPassword(username, password); // getting to this stage
+		log.trace("Player: " + p);
+//		if (p != null && p.getGames() == null) {
+//			p.setGames(gDao.getGamesByPlayer(p.getId()));
+//		}
 		return p;
 	}
 
@@ -57,9 +68,9 @@ public class PlayerServiceImpl implements PlayerService {
 
 	@Override
 	public void deletePlayer(Player p) {
-		for (Game g : p.getGames()) {
-			gDao.delete(g);
-		}
+//		for (Game g : p.getGames()) {
+//			gDao.delete(g);
+//		}
 		pDao.delete(p);
 	}
 
