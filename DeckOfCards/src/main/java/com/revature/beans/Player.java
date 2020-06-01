@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @NamedQueries({
-	@NamedQuery(name="getAllPlayers", query="FROM Player")
+		@NamedQuery(name="getAllPlayers", query="FROM Player")
 })
 
 @Entity
@@ -38,6 +39,7 @@ public class Player {
 	@Column(name="last_name")
 	private String lastname;
 	private Double balance;
+
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="player_games",joinColumns=@JoinColumn(name="player_id"), // the cat owns the special needs
 			inverseJoinColumns=@JoinColumn(name="game_id"))
