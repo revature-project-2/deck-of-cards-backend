@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,8 +30,8 @@ public class Game {
 	private Integer playerId;
 	@Column(name="deck_id")
 	private Integer deckId;
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="game_type_id")
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="game_type_id", referencedColumnName = "id")
 	private GameType type;
 	private Integer score;
 	@Column(name="winner_id")
