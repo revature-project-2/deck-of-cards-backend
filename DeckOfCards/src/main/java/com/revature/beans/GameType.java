@@ -8,6 +8,7 @@ public class GameType {
 	@Id
 	@SequenceGenerator(name="game_typeGen", sequenceName="game_type_seq", allocationSize=1)
 	@GeneratedValue(generator="game_typeGen", strategy=GenerationType.SEQUENCE)
+	@Column(name="game_type_id")
 	private Integer id;
 	@Column(name="type_name")
 	private String name;

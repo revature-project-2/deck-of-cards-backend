@@ -115,7 +115,6 @@ public class GameHibernate implements GameDAO{
 		log.warn("DEPRECATED METHOD CALL: getCatsByOwner, USE Person.getCats INSTEAD");
 		Session s = hu.getSession();
 		Player p = s.get(Player.class, playerId);
-//		return p.getGames();
-		return null;
+		return p.getGames();
 	}
 }

@@ -1,13 +1,21 @@
 package com.revature.beans;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,17 +32,19 @@ public class Player {
 	@Column(name="player_id")
 	private Integer id;
 	private String username;
-	@Column(name="PASSWRD")
+	@Column(name="passwrd")
 	private String password;
 	@Column(name="first_name")
 	private String firstname;
 	@Column(name="last_name")
 	private String lastname;
 	private Double balance;
-//	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-//	@JoinTable(name="game", joinColumns=@JoinColumn(name="player_id"))
-//	private Set<Game> games;
 
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinTable(name="game_player",joinColumns=@JoinColumn(name="player_id"), // the cat owns the special needs
+			inverseJoinColumns=@JoinColumn(name="game_id"))
+	private Set<Game> games;
+	
 	public Player() {
 		id = 0;
 		username = "";
@@ -42,7 +52,7 @@ public class Player {
 		firstname = "";
 		lastname = "";
 		balance = 0.0;
-//		games = new HashSet<Game>();
+		games = new HashSet<Game>();
 	}
 
 	public Integer getId() {
@@ -93,13 +103,13 @@ public class Player {
 		this.balance = balance;
 	}
 
-//	public Set<Game> getGames() {
-//		return games;
-//	}
-//
-//	public void setGames(Set<Game> games) {
-//		this.games = games;
-//	}
+	public Set<Game> getGames() {
+		return games;
+	}
+
+	public void setGames(Set<Game> games) {
+		this.games = games;
+	}
 
 	@Override
 	public int hashCode() {
@@ -107,7 +117,7 @@ public class Player {
 		int result = 1;
 		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
-//		result = prime * result + ((games == null) ? 0 : games.hashCode());
+		result = prime * result + ((games == null) ? 0 : games.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -134,11 +144,11 @@ public class Player {
 				return false;
 		} else if (!firstname.equals(other.firstname))
 			return false;
-//		if (games == null) {
-//			if (other.games != null)
-//				return false;
-//		} else if (!games.equals(other.games))
-//			return false;
+		if (games == null) {
+			if (other.games != null)
+				return false;
+		} else if (!games.equals(other.games))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -165,6 +175,6 @@ public class Player {
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
-				+ ", lastname=" + lastname + ", balance=" + balance + /* ", games=" + games + */"]";
+				+ ", lastname=" + lastname + ", balance=" + balance + ", games=" + games + "]";
 	}
 }
