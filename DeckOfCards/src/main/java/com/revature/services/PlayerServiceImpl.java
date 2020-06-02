@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 import com.revature.beans.Game;
 import com.revature.beans.Player;
 import com.revature.data.GameDAO;
-import com.revature.data.GameHibernate;
 import com.revature.data.PlayerDAO;
-
-import jdk.internal.net.http.common.Log;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
