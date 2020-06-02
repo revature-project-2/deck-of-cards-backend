@@ -26,26 +26,20 @@ public class Game {
 	@GeneratedValue(generator="gameGen", strategy=GenerationType.SEQUENCE)
 	@Column(name="game_id")
 	private Integer id;
-	@Column(name="player_id")
-	private Integer playerId;
 	@Column(name="deck_id")
 	private Integer deckId;
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="game_type_id", referencedColumnName = "id")
+	@JoinColumn(name="game_type_id")
 	private GameType type;
 	private Integer score;
-	@Column(name="winner_id")
-	private Integer winnerId;
 	@Column(name="amount_won")
 	private Float amountWon;
 	
 	public Game() {
 		id = 0;
-		playerId = 0;
 		deckId = 0;
 		type = null;
 		score = 0;
-		winnerId = 0;
 		amountWon = 0f;
 	}
 
@@ -55,14 +49,6 @@ public class Game {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Integer getUserId() {
-		return playerId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.playerId = userId;
 	}
 
 	public Integer getDeckId() {
@@ -89,13 +75,6 @@ public class Game {
 		this.score = score;
 	}
 
-	public Integer getWinnerId() {
-		return winnerId;
-	}
-
-	public void setWinnerId(Integer winnerId) {
-		this.winnerId = winnerId;
-	}
 
 	public Float getAmount_won() {
 		return amountWon;
@@ -114,8 +93,6 @@ public class Game {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((score == null) ? 0 : score.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((playerId == null) ? 0 : playerId.hashCode());
-		result = prime * result + ((winnerId == null) ? 0 : winnerId.hashCode());
 		return result;
 	}
 
@@ -150,23 +127,13 @@ public class Game {
 			return false;
 		if (type != other.type)
 			return false;
-		if (playerId == null) {
-			if (other.playerId != null)
-				return false;
-		} else if (!playerId.equals(other.playerId))
-			return false;
-		if (winnerId == null) {
-			if (other.winnerId != null)
-				return false;
-		} else if (!winnerId.equals(other.winnerId))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", userId=" + playerId + ", deckId=" + deckId + ", type=" + type + ", score=" + score
-				+ ", winnerId=" + winnerId + ", amount_won=" + amountWon + "]";
+		return "Game [id=" + id + ", userId=" + ", deckId=" + deckId + ", type=" + type + ", score=" + score
+				+ ", amount_won=" + amountWon + "]";
 	}
 	
 }

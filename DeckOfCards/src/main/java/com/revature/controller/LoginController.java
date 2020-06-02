@@ -2,18 +2,16 @@ package com.revature.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.revature.beans.Player;
 import com.revature.services.PlayerService;
-import com.revature.services.PlayerServiceImpl;
 
 @RestController
 @RequestMapping(path="/login")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 public class LoginController {
 	private PlayerService pServ;
 	

@@ -41,7 +41,7 @@ public class Player {
 	private Double balance;
 
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinTable(name="player_games",joinColumns=@JoinColumn(name="player_id"), // the cat owns the special needs
+	@JoinTable(name="game_player",joinColumns=@JoinColumn(name="player_id"), // the cat owns the special needs
 			inverseJoinColumns=@JoinColumn(name="game_id"))
 	private Set<Game> games;
 	
