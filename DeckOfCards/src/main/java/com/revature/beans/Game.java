@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Game {
+public class Game implements Comparable<Game>{
 	@Id
 	@SequenceGenerator(name="gameGen", sequenceName="game_seq", allocationSize=1)
 	@GeneratedValue(generator="gameGen", strategy=GenerationType.SEQUENCE)
@@ -133,6 +133,11 @@ public class Game {
 	public String toString() {
 		return "Game [id=" + id + ", userId=" + ", deckId=" + deckId + ", type=" + type + ", score=" + score
 				+ ", amount_won=" + amountWon + "]";
+	}
+
+	@Override
+	public int compareTo(Game g) {
+		return this.id - g.getId();
 	}
 	
 }

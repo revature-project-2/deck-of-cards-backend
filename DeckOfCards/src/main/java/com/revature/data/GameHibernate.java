@@ -59,7 +59,7 @@ public class GameHibernate implements GameDAO{
 	public Set<Game> getAll() {
 		log.trace("Getting all the games from the database");
 		Session s = hu.getSession();
-		String query = "FROM game";
+		String query = "FROM Game";
 		Query<Game> q = s.createQuery(query, Game.class);
 		List<Game> gameList = q.getResultList();
 		Set<Game> gameSet = new TreeSet<Game>();
