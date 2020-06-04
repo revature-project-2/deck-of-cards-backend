@@ -26,7 +26,7 @@ public class Game implements Comparable<Game>{
 	@Column(name="game_id")
 	private Integer id;
 	@Column(name="deck_id")
-	private Integer deckId;
+	private String deckId;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="game_type_id")
 	private GameType type;
@@ -36,7 +36,7 @@ public class Game implements Comparable<Game>{
 	
 	public Game() {
 		id = 0;
-		deckId = 0;
+		deckId = "";
 		type = null;
 		score = 0;
 		amountWon = 0f;
@@ -50,11 +50,11 @@ public class Game implements Comparable<Game>{
 		this.id = id;
 	}
 
-	public Integer getDeckId() {
+	public String getDeckId() {
 		return deckId;
 	}
 
-	public void setDeckId(Integer deckId) {
+	public void setDeckId(String deckId) {
 		this.deckId = deckId;
 	}
 
