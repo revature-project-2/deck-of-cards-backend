@@ -26,7 +26,7 @@ create table game
 (
     game_id number(10) primary key,
     player_id number(10) not null,
-    deck_id number(10) not null,
+    deck_id varchar2(20) not null,
     game_type_id number(10) not null,
     score number(4),
     winner_id number(10),
@@ -39,3 +39,5 @@ create table game
 create sequence game_type_seq;
 create sequence player_seq;
 create sequence game_seq;
+
+commit;

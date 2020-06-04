@@ -20,4 +20,6 @@ insert into player (player_id, username, passwrd, first_name, last_name, balance
 values (1, 'snichols', 'pass', 'Sierra', 'Nichols', 10000);
 
 insert into game (game_id, player_id, deck_id, game_type_id, amount_won)
-values (1, 1, 1, 1, 2000);
+values (1, 1, '1a2b3c', 1, 2000);
+
+commit;
