@@ -11,7 +11,7 @@ import com.revature.services.PlayerService;
 
 @RestController
 @RequestMapping(path="/login")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://cardgamesprod.s3-us-west-2.amazonaws.com/deck-of-cards-front/")
 public class LoginController {
 	private PlayerService pServ;
 	

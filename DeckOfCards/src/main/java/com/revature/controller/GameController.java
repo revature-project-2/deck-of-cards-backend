@@ -15,7 +15,7 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 @RestController
 @RequestMapping(path="/game")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://cardgamesprod.s3-us-west-2.amazonaws.com/deck-of-cards-front/")
 public class GameController {
 	private GameService gServ;
 	private Logger log = Logger.getLogger(PlayerHibernate.class);
