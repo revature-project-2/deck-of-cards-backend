@@ -33,6 +33,7 @@ public class GameController {
 	@PostMapping
 	public ResponseEntity<Game> addGame(@RequestBody Game game) {
 		game.setId(gServ.addGame(game));
+		
 		return ResponseEntity.ok(game);
 	}
 	

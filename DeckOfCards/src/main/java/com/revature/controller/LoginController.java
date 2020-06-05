@@ -37,6 +37,9 @@ public class LoginController {
 	@RequestMapping(path="/register")
 	public ResponseEntity<Player> registerPlayer(@RequestBody Player player) {
 		player.setId(pServ.addPlayer(player));
+		if(player.getId() == -1) {
+			return ResponseEntity.badRequest().build();
+		}
 		return ResponseEntity.ok(player);
 	}
 	
