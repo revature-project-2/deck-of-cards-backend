@@ -25,7 +25,8 @@ public class LoginController {
 		Player p = (Player) session.getAttribute("player");
 		if(p == null)
 		{
-			return loginPlayer(session, p);
+//			return loginPlayer(session, p);
+            return ResponseEntity.notFound().build();
 		}
 		else
 		{
