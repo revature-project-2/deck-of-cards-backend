@@ -2,25 +2,23 @@ package com.revature.controller;
 
 import java.util.Set;
 
+import com.revature.data.PlayerHibernate;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.revature.beans.Game;
 import com.revature.services.GameService;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 @RestController
 @RequestMapping(path="/game")
+@CrossOrigin(origins="https://cardgamesprod.s3-us-west-2.amazonaws.com/deck-of-cards-front/")
 public class GameController {
 	private GameService gServ;
-	
+	private Logger log = Logger.getLogger(PlayerHibernate.class);
 	@Autowired
 	public GameController(GameService gServ) {
 		this.gServ = gServ;
