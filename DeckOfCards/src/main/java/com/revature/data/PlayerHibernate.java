@@ -25,7 +25,7 @@ public class PlayerHibernate implements PlayerDAO {
 	private Logger log = Logger.getLogger(PlayerHibernate.class);
 	
 	@Override
-	public Integer add(Player p) {
+	public Integer add(Player p){
 		log.trace("Adding a new player to the database");
 		Session s = hu.getSession();
 		Transaction tx = null;
@@ -39,6 +39,7 @@ public class PlayerHibernate implements PlayerDAO {
 				tx.rollback();
 			}
 			log.error(e);
+			p.setId(-1);
 		} finally {
 			s.close();
 		}

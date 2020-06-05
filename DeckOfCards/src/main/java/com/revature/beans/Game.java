@@ -37,7 +37,7 @@ public class Game implements Comparable<Game>{
 	public Game() {
 		id = 0;
 		deckId = "";
-		type = null;
+		type = new GameType(1, "Blackjack");
 		score = 0;
 		amountWon = 0f;
 	}

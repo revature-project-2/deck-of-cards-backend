@@ -17,6 +17,10 @@ public class GameType {
 		id = 0;
 		name = "";
 	}
+	public GameType(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	public Integer getId() {
 		return id;
